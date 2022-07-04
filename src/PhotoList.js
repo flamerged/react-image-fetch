@@ -6,7 +6,6 @@ const PhotoList = ({ photos, className }) => {
       {photos.map((photo) => (
         <PhotoListItem photo={photo} key={photo.id}></PhotoListItem>
       ))}
-      <style jsx="true">{``}</style>
     </div>
   );
 };
