@@ -9,10 +9,18 @@ const PhotoListItem = ({ photo }) => {
 
   return (
     <div
-      className="card-container p-6 bg-white rounded-lg mb-6 w-full max-w-md"
+      className="card-container p-6 bg-white rounded-lg mb-6 w-full max-w-md drop-shadow-md hover:drop-shadow-2xl hover:cursor-pointer"
       onClick={() => handleClick()}
     >
-      <div className="">Show photo</div>
+      <div
+        className={`show-notification flex justify-center items-center w-full h-full ${
+          isCardOpen
+            ? "hover:backdrop-blur-sm hover:bg-white/30"
+            : "hover:bg-white"
+        }  rounded-lg text-gray-500 text-2xl`}
+      >
+        {isCardOpen ? "Hide photo" : "Show photo"}
+      </div>
       {isCardOpen ? (
         <img className="mb-6" src={photo.url} alt={photo.title} />
       ) : (
@@ -23,10 +31,17 @@ const PhotoListItem = ({ photo }) => {
       <style jsx="true">{`
         .card-container {
           position: relative;
+        }
 
-          .show-notification {
-            position: relative;
-          }
+        .show-notification {
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        .card-container:hover > .show-notification {
+          opacity: 1;
         }
       `}</style>
     </div>

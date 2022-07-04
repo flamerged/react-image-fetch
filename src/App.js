@@ -40,8 +40,7 @@ function App() {
       <h1 className="mb-8 text-center text-5xl text-white font-bold">
         Random photo list
       </h1>
-      <PhotoList photos={photos}></PhotoList>
-      <style jsx="true">{``}</style>
+      <PhotoList className="pb-7" photos={photos}></PhotoList>
     </div>
   );
 }
